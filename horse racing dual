@@ -1,0 +1,19 @@
+const N = parseInt(readline());
+
+const strengths = [];
+
+for(let i = 0; i < N; i++){
+    strengths.push(parseInt(readline()));
+}
+strengths.sort((a, b) => a - b);
+
+let mindiff = Infinity;
+
+for(let i = 1; i < N; i++){
+   const diff = strengths[i] - strengths[i-1];
+    if(diff < mindiff){
+        mindiff = diff;
+    }
+}
+
+console.log(mindiff);
