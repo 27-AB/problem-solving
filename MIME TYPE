@@ -1,0 +1,31 @@
+const N =parseInt(readline());
+
+const Q = parseInt(readline());
+
+const mime = {};
+
+for(let i = 0; i < N; i++) {
+    const parts = readline().split(" ");
+
+    const extension = parts[0].toLowerCase();
+    const type = parts[1];
+
+    mime[extension] = type;
+}
+
+for(let i = 0; i < Q; i++) {
+    const filename = readline();
+    const index = filename.lastIndexOf(".");
+    if(index === -1 || index === filename.length - 1){
+        console.log("UNKNOWN");
+
+        continue;
+    }
+    const extension = filename.substring(index + 1).toLowerCase();
+    if(mime[extension]){
+        console.log(mime[extension]);
+    }
+    else {
+        console.log("UNKNOWN");
+    }
+}
